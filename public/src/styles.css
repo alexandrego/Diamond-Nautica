@@ -1,17 +1,28 @@
-@font-face {
-    font-family: Inclusive Sans Regular;
-    src: url([public/src/assets/fonts/Inclusive_Sans/InclusiveSans-Regular.ttf]);
- }
- @font-face {
-    font-family: Inclusive Sans Italic;
-    src: url([public/src/assets/fonts/Inclusive_Sans/InclusiveSans-Italic.ttf]);
- }
-
-h1 {
-    color: blue;
+*{
+    font-family: Inclusive Sans;
+    color: #4F4F4F;
+    font-weight: 400;
 }
+.header {
+    background: #120A8F;
+    color: #FFFFFF;
+    padding: 25px 0;
 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
 .fontRegular {
-    font-family: Inclusive Sans Italic;
-    font-size: 16px;
+    font-size: 15px;
+}
+.logo-header {
+    width: 50px;
+}
+.form-search {
+    height: 30px;
+    padding: 0 5px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
 }
