@@ -6,7 +6,7 @@
 .header {
     background: #120A8F;
     color: #FFFFFF;
-    padding: 25px 0;
+    padding: 15px 5px;
 
     display: flex;
     flex-direction: row;
@@ -17,7 +17,8 @@
     font-size: 15px;
 }
 .logo-header {
-    width: 50px;
+    width: 65px;
+    padding: 5px;
 }
 .form-search {
     height: 30px;
@@ -25,4 +26,11 @@
     border: 0;
     border-radius: 5px;
     outline: 0;
+
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Search_icon.svg/1024px-Search_icon.svg.png');
+}
+.btn-icons {
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 18px;
 }
