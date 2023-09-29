@@ -30,7 +30,7 @@
         @yield('content')
 
     <footer>
-        <p>Diamond Náutica &copy; 2002</p>
+        <p class="footer-text">Diamond Náutica &copy; 2002</p>
     </footer>
 
     <!-- JS Bootstrap -->

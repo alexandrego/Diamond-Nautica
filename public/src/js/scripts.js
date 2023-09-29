@@ -1,1 +1,1 @@
-console.log('Diamond Náutica');
+console.log('Diamond Náutica - Arquivo JS funcionando!');
