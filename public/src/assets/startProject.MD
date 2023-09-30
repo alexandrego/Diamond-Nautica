@@ -14,3 +14,6 @@
 
 Instalando o Laravel Serve LiveReload
 -> composer require bangnokia/laravel-serve-livereload --dev
+
+Input "Busca" -> Bootstrap
+Carousel -> Bootstrap
