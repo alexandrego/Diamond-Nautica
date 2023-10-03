@@ -17,3 +17,17 @@ Instalando o Laravel Serve LiveReload
 
 Input "Busca" -> Bootstrap
 Carousel -> Bootstrap
+
+# Consumindo API Diamond Náutica
+Primeiro criamos uma pasta chamada "Helpers" dentro da pasta "app".
+Depois criamos o arquivo "ApiDiamond.php" dentro da pasta "Helpers".
+
+Criar uma pasta chamada "Facades" dentro da pasta "app".
+Criar o arquivo "ApiDiamond.php" dentro da pasta "Facades".
+
+Criar um arquivo chamado "ApiControllers.php" dentro da pasta "Http->Controllers".
+
+Agora precisamos criar um novo arquivo dentro da pasta "Providers"
+Vamos chamar de "ApiDiamondProvider.php"
+
+Registrar a classe dentro do arquivo "app.php" dentro da pasta "app->config".

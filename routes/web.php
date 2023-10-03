@@ -24,3 +24,5 @@ Route::get('/home', function () {
 Route::get('/products', function () {
     return view('layouts/products');
 });
+
+Route::get('api-diamond', \App\Http\Controllers\ApiController::class);
