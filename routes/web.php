@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoutesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [RoutesController::class, 'Welcome']);
 
-Route::get('/home', function () {
-    return view('layouts/home');
-});
+Route::get('/home', [RoutesController::class, 'Home']);
 
-Route::get('/products', function () {
-    return view('layouts/products');
-});
+Route::get('/products', [RoutesController::class, 'Products']);
 
 Route::get('api-diamond', \App\Http\Controllers\ApiController::class);

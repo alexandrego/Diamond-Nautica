@@ -63,6 +63,47 @@
     <!-- Fim Carousel de Imagens -->
 
     <!-- Produtos -->
-        <a href="/products">Products</a>
+        <div class="produtosHome">
+            @foreach($products as $product)
+                <a href="/exibe-produto/{{ $product['product_id'] }}">
+                    <div class="produtoUnico">
+                        <div class="imgProduto">
+                            <img src="{{ $product['product_img'] }}"
+                            onerror="retryLoadImage(this, '/src/assets/img/logo.webp', 3);">
+                        </div>
+                        <div class="tituloProduto">
+                            {{ $product['product_title'] }}
+                        </div>
+                        <div class="precoProduto">
+                            R$ {{ number_format($product['product_price'], 2, ',', '.') }}
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        <script>
+            function retryLoadImage(imgElement, defaultSrc, attempts) {
+                if (attempts <= 0) {
+                    // Se as tentativas acabaram, define a imagem padrão
+                    imgElement.src = defaultSrc;
+                    return;
+                }
+
+                // Tenta carregar a imagem novamente
+                const imgSrc = imgElement.src;
+
+                // Define um novo evento de erro
+                imgElement.onerror = function() {
+                    // Reduz o número de tentativas e tenta novamente
+                    imgElement.src = imgSrc; // Tente carregar a mesma imagem novamente
+                    setTimeout(() => retryLoadImage(imgElement, defaultSrc, attempts - 1), 1500); // Tenta novamente após 1 segundo
+                };
+
+                // Para garantir que o evento de erro seja acionado, altere a src temporariamente
+                imgElement.src = ''; // Limpa a src para disparar o evento de erro
+                imgElement.src = imgSrc; // Reatribui a src original
+            }
+            </script>
     <!-- Fim Produtos -->
 @endsection
