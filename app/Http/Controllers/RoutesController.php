@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Http;
 
 class RoutesController extends Controller
 {
+    //Splash screen
     public function Welcome()
     {
         return view('welcome');
     }
 
+    //Página Hom
     public function Home(Request $request)
     {
         $url = 'https://diamondnautica.com.br/wp-json/diamondnautica/v2/products';
@@ -29,7 +31,8 @@ class RoutesController extends Controller
         return view('layouts/home', compact('products'));
     }
 
-    public function Products(Request $request)
+    //Exibe produto unico
+    public function Product(Request $request)
     {
         $url = 'https://diamondnautica.com.br/wp-json/diamondnautica/v2/products';
 

@@ -226,12 +226,15 @@
         width: 100%;
         height: 300px;
 
+        border-bottom: 0.4px solid #C0C0C0;
+        border-radius: 5px;
+
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-
-        /* border: 1px solid #000; */
     }
     .imgProduto img {
         max-width: 100%;
@@ -239,10 +242,13 @@
         padding: 5px;
     }
     .tituloProduto {
+        max-width: 100%;
         font-size: 14px;
         padding: 5px;
     }
     .precoProduto {
+        width: 100%;
+        padding: 5px;
         color: #2E8B57;
     }
 /* Fim Exibe Produtos */
