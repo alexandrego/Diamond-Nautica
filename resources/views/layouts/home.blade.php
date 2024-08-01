@@ -65,7 +65,7 @@
     <!-- Produtos -->
         <div class="produtosHome">
             @foreach($products as $product)
-                <a href="/exibe-produto/{{ $product['product_id'] }}">
+                <a href="{{ route('product.show', ['id' => $product['product_id']]) }}">
                     <div class="produtoUnico">
                         <div class="imgProduto">
                             <img src="{{ $product['product_img'] }}"

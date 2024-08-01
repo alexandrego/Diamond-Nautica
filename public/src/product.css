@@ -1,0 +1,11 @@
+.product-images {
+    max-width: 100%;
+}
+.product-images img {
+    max-width: 100%;
+}
+
+.product-carousel img {
+    display: block; /* Remove espaços em branco abaixo da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+}

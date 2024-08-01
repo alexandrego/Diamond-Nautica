@@ -34,17 +34,18 @@ class RoutesController extends Controller
     //Exibe produto unico
     public function Product(Request $request)
     {
-        $url = 'https://diamondnautica.com.br/wp-json/diamondnautica/v2/products';
+        $id_product = $request->route('id');
 
-        $params = array(
-            'page' => $request->get('page'),
-            'per_page' => $request->get('per_page')
-        );
+        // dd($id_product);
 
-        $response = Http::get($url, $params);
-        $products = json_decode($response->body(), true);
+        $url = 'https://diamondnautica.com.br/wp-json/diamondnautica/v2/product/'.$id_product;
+
+        $response = Http::get($url);
+        $product = json_decode($response->body(), true);
+
+        // dd($product);
 
         // return view('products.index', compact('products'));
-        return view('layouts/products', compact('products'));
+        return view('layouts/Products/product', compact('product'));
     }
 }

@@ -18,6 +18,6 @@ Route::get('/', [RoutesController::class, 'Welcome']);
 
 Route::get('/home', [RoutesController::class, 'Home']);
 
-Route::get('/product/{id}', [RoutesController::class, 'Product']);
+Route::get('/product/{id}', [RoutesController::class, 'Product'])->name('product.show');
 
 Route::get('api-diamond', \App\Http\Controllers\ApiController::class);
