@@ -3,6 +3,9 @@
     color: #4F4F4F;
     font-weight: 400;
 }
+body {
+    transition: transform 0.3s ease; /* Transição suave para o efeito de esticar */
+}
 
 /* Esconder a barra de rolagem */
 ::-webkit-scrollbar {
@@ -80,6 +83,16 @@
         }
         100% {
             opacity: 1;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Move para baixo */
+        }
+        to {
+            opacity: 1; /* Termina visível */
+            transform: translateY(0); /* Retorna à posição original */
         }
     }
 /* Fim Animações */
@@ -206,6 +219,9 @@
 /* Fim Slide */
 
 /* Exibe Produtos */
+    .pagina-home {
+        animation: fadeInOutAnimation 0.8s ease-in forwards; /* Aplica a animação */
+    }
     .produtosHome {
         width: 100%;
 
@@ -238,7 +254,7 @@
     }
     .imgProduto img {
         max-width: 100%;
-        header: 150px;
+        /* height: 150px; */
         padding: 5px;
     }
     .tituloProduto {
@@ -265,3 +281,40 @@
         color: #FFFFFF;
     }
 /* Fim Footer */
+
+/* Efeito de Skeleton load na home */
+    .skeleton-product-home {
+        padding: 10px;
+    }
+    .skeleton-item-back {
+        width: 30%;
+        background-color: #e0e0e0; /* Cor do skeleton */
+        height: 20px; /* Altura do item do skeleton */
+        border-radius: 4px; /* Bordas arredondadas */
+        animation: pulse 1.5s infinite; /* Animação de pulsação */
+    }
+    .skeleton-item-img {
+        width: 100%;
+        margin: 10px 0;
+        background-color: #e0e0e0; /* Cor do skeleton */
+        height: 350px; /* Altura do item do skeleton */
+        border-radius: 4px; /* Bordas arredondadas */
+        animation: pulse 1.5s infinite; /* Animação de pulsação */
+    }
+    .skeleton-item-price {
+        width: 30%;
+        margin: 10px 0;
+        background-color: #e0e0e0; /* Cor do skeleton */
+        height: 20px; /* Altura do item do skeleton */
+        border-radius: 4px; /* Bordas arredondadas */
+        animation: pulse 1.5s infinite; /* Animação de pulsação */
+    }
+    .skeleton-item-descricao {
+        width: 100%;
+        margin: 5px 0;
+        background-color: #e0e0e0; /* Cor do skeleton */
+        height: 20px; /* Altura do item do skeleton */
+        border-radius: 4px; /* Bordas arredondadas */
+        animation: pulse 1.5s infinite; /* Animação de pulsação */
+    }
+/* Efeito de Skeleton load na home */
