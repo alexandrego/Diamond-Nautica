@@ -6,10 +6,11 @@
 @section('content')
     <div id="pagina-home" class="pagina-home">
         {{-- Mostra o efeito de carregando --}}
-        <div id="loading" style="display:none;text-align:center;justify-content:center;font-size:50px;padding:20px 0;background-color:#130a8f5b;
-        animation:slide-in 0.5s ease-out;position:fixed;width:100%;height:100vh;z-index:9;">
-            <i class="fa-solid fa-spinner fa-spin-pulse" style="color: #fff;"></i>
-        </div>
+            <div id="loading" style="display:none;text-align:center;justify-content:center;font-size:50px;padding:20px 0;background-color:#130a8f5b;
+            animation:slide-in 0.5s ease-out;position:fixed;width:100%;height:100vh;z-index:9;">
+                <i class="fa-solid fa-spinner fa-spin-pulse" style="color: #fff;"></i>
+            </div>
+        {{-- Mostra o efeito de carregando --}}
 
         <!-- Carousel de Imagens -->
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -68,6 +69,18 @@
                 </button>
             </div>
         <!-- Fim Carousel de Imagens -->
+
+        <div class="categorias">
+            <div class="categoria">
+                <div class="categoriaImg">
+                    <img src="/src/assets/img/verdugo.svg"/>
+                </div>
+
+                <div class="categoriaNomme">
+                    Base e Verdugo
+                </div>
+            </div>
+        </div>
 
         <!-- Produtos -->
             <div class="produtosHome">

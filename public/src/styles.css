@@ -218,6 +218,31 @@ body {
     }
 /* Fim Slide */
 
+/* Mostra Categorias */
+    .categorias {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px:
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .categoria {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+
+        border-radius: 50%;
+    }
+    .categoriaImg img{
+        width: 70px;
+
+        border-radius: 50%;
+    }
+/* Mostra Categorias */
+
 /* Exibe Produtos */
     .pagina-home {
         animation: fadeInOutAnimation 0.8s ease-in forwards; /* Aplica a animação */
