@@ -70,17 +70,173 @@
             </div>
         <!-- Fim Carousel de Imagens -->
 
-        <div class="categorias">
-            <div class="categoria">
-                <div class="categoriaImg">
-                    <img src="/src/assets/img/verdugo.svg"/>
+        {{-- Mostra pontos catagorias --}}
+            <div class="categorias">
+                {{-- Base e Verdugo --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Base e Verdugo
+                    </div>
                 </div>
 
-                <div class="categoriaNomme">
-                    Base e Verdugo
+                {{-- Outro 1 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 1
+                    </div>
+                </div>
+
+                {{-- Outro 2 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 2
+                    </div>
+                </div>
+
+                {{-- Outro 3 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 3
+                    </div>
+                </div>
+
+                {{-- Outro 4 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 4
+                    </div>
+                </div>
+
+                {{-- Outro 5 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 5
+                    </div>
+                </div>
+
+                {{-- Outro 6 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 6
+                    </div>
+                </div>
+
+                {{-- Outro 7 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 7
+                    </div>
+                </div>
+
+                {{-- Outro 8 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 8
+                    </div>
+                </div>
+
+                {{-- Outro 9 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 9
+                    </div>
+                </div>
+
+                {{-- Outro 10 --}}
+                <div class="categoria">
+                    <div class="categoriaImg">
+                        <img src="/src/assets/img/verdugo.svg"/>
+                    </div>
+                    <div class="categoriaNome">
+                        Outro 10
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <script>
+                const categorias = document.querySelector('.categorias');
+                const categoriaElements = document.querySelectorAll('.categoria');
+
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                categorias.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    categorias.classList.add('active');
+                    startX = e.pageX - categorias.offsetLeft;
+                    scrollLeft = categorias.scrollLeft;
+                });
+
+                categorias.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    categorias.classList.remove('active');
+                    removeStretchEffects();
+                });
+
+                categorias.addEventListener('mouseup', () => {
+                    isDown = false;
+                    categorias.classList.remove('active');
+                    removeStretchEffects();
+                });
+
+                categorias.addEventListener('mousemove', (e) => {
+                    if (!isDown) return; // Stop the fn from running
+                    e.preventDefault();
+                    const x = e.pageX - categorias.offsetLeft;
+                    const walk = (x - startX) * 2; // The multiplier controls the scroll speed
+                    categorias.scrollLeft = scrollLeft - walk;
+
+                    // Verifica se está próximo do início ou do fim
+                    if (categorias.scrollLeft === 0) {
+                        categoriaElements[0].classList.add('stretch'); // Efeito de esticar na primeira div
+                    } else {
+                        categoriaElements[0].classList.remove('stretch');
+                    }
+
+                    if (categorias.scrollLeft + categorias.clientWidth >= categorias.scrollWidth) {
+                        categoriaElements[categoriaElements.length - 1].classList.add('stretch'); // Efeito de esticar na última div
+                    } else {
+                        categoriaElements[categoriaElements.length - 1].classList.remove('stretch');
+                    }
+                });
+
+                function removeStretchEffects() {
+                    categoriaElements[0].classList.remove('stretch');
+                    categoriaElements[categoriaElements.length - 1].classList.remove('stretch');
+                }
+            </script>
+        {{-- Mostra pontos catagorias --}}
 
         <!-- Produtos -->
             <div class="produtosHome">
