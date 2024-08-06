@@ -72,7 +72,7 @@ function handleProductClick() {
             skeleton.style.display = 'none'; // Oculta o skeleton
         }
         // location.reload(); // Recarrega a página
-    }, 2000); // 1000 ms = 1 segundo
+    }, 4000); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
