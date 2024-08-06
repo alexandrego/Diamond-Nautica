@@ -71,7 +71,7 @@ function handleProductClick() {
         // if (skeleton) {
         //     skeleton.style.display = 'none'; // Oculta o skeleton
         // }
-        let el = document.getElementById('pagina-produto');
+        let el = document.getElementById('pagina-home');
 
         el.innerHTML = `
             <!-- Skeleton Loader -->
