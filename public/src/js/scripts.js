@@ -74,54 +74,17 @@ function handleProductClick() {
         let el = document.getElementById('pagina-home');
 
         el.innerHTML = `
-            <style>
-                .skeleton-slide {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                }
-
-                .skeleton {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    animation: slide-in 0.5s ease-out; /* Animação de entrada */
-                }
-
-                .skeleton-item-slide {
-                    width: 100%;
-                    background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 120px; /* Altura do item do skeleton */
-                    border-radius: 4px; /* Bordas arredondadas */
-                    animation: pulse 1.5s infinite; /* Animação de pulsação */
-                }
-                .skeleton-product {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    gap: 10px;
-                    margin: 8px 0;
-                }
-
-                .skeleton-item {
-                    width: 48%;
-                    background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 200px; /* Altura do item do skeleton */
-                    border-radius: 4px; /* Bordas arredondadas */
-                    animation: pulse 1.5s infinite; /* Animação de pulsação */
-                }
-            </style>
             <!-- Skeleton Loader -->
-            <div id="skeleton" class="skeleton">
+            <div id="skeleton" class="skeleton" style="width:100%;display:flex;flex-direction:column;">
 
-                <div class="skeleton-item-slide"></div>
+                <div class="skeleton-item-slide" style="width:100%;background-color:#e0e0e0;height:120px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
 
-                <div class="skeleton-product">
-                    <div class="skeleton-item"></div>
-                    <div class="skeleton-item"></div>
-                    <div class="skeleton-item"></div>
-                    <div class="skeleton-item"></div>
+                <div class="skeleton-product" style="display:flex;flex-direction:row;
+                    flex-wrap:wrap;gap:10px;margin:8px 0;">
+                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
+                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
+                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
+                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
                 </div>
             </div>
         `;
