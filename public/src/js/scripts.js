@@ -62,10 +62,10 @@ function handleProductClick() {
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
     setTimeout(function() {
         // Remover o efeito skeleton
-        const skeleton = document.getElementById('skeleton');
-        if (skeleton) {
-            skeleton.style.display = 'none'; // Oculta o skeleton
-        }
+        // const skeleton = document.getElementById('skeleton');
+        // if (skeleton) {
+        //     skeleton.style.display = 'none'; // Oculta o skeleton
+        // }
         location.reload(); // Recarrega a página
     }, 4500); // 1000 ms = 1 segundo
 }
