@@ -43,7 +43,7 @@ function handleProductClick() {
 
     el.innerHTML = `
         <!-- Skeleton Loader -->
-        <div class="skeleton skeleton-product-home">
+        <div id="skeleton" class="skeleton skeleton-product-home">
             <div class="skeleton-item-back"></div>
             <div class="skeleton-item-img"></div>
             <div class="skeleton-item-price"></div>
@@ -61,8 +61,12 @@ function handleProductClick() {
 
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
     setTimeout(function() {
-       // history.back(); // Voltar à página anterior
-    }, 1000); // 1000 ms = 1 segundo
+        // Remover o efeito skeleton
+        const skeleton = document.getElementById('skeleton');
+        if (skeleton) {
+            skeleton.style.display = 'none'; // Oculta o skeleton
+        }
+    }, 4500); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
@@ -71,7 +75,7 @@ function handleBackClick() {
 
     el.innerHTML = `
         <!-- Skeleton Loader -->
-        <div class="skeleton">
+        <div id="skeleton" class="skeleton">
 
             <div class="skeleton-item-slide"></div>
 
