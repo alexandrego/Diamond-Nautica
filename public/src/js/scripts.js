@@ -65,14 +65,30 @@ function handleProductClick() {
     });
 
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
-    // setTimeout(function() {
+    setTimeout(function() {
         // Remover o efeito skeleton
         // const skeleton = document.getElementById('skeleton');
         // if (skeleton) {
         //     skeleton.style.display = 'none'; // Oculta o skeleton
         // }
-        // location.reload(); // Recarrega a página
-    // }, 4500); // 1000 ms = 1 segundo
+        let el = document.getElementById('pagina-produto');
+
+        el.innerHTML = `
+            <!-- Skeleton Loader -->
+            <div id="skeleton" class="skeleton">
+
+                <div class="skeleton-item-slide"></div>
+
+                <div class="skeleton-product">
+                    <div class="skeleton-item"></div>
+                    <div class="skeleton-item"></div>
+                    <div class="skeleton-item"></div>
+                    <div class="skeleton-item"></div>
+                </div>
+            </div>
+        `;
+        location.reload(); // Recarrega a página
+    }, 4500); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
