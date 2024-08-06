@@ -67,7 +67,7 @@ function handleProductClick() {
             skeleton.style.display = 'none'; // Oculta o skeleton
         }
         // Adiciona o conteúdo real
-        document.getElementById('content').innerHTML += `
+        document.getElementById('pagina-home').innerHTML += `
 
         {{-- Mostra o efeito de carregando --}}
             <div id="loading" style="display:none;text-align:center;justify-content:center;font-size:50px;padding:20px 0;background-color:#130a8f5b;
