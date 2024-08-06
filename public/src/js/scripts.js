@@ -65,21 +65,21 @@ function handleProductClick() {
     });
 
     // Verifica se é uma navegação de volta
-    if (isBack) {
-        // Atualiza o histórico do navegador
-        // window.history.replaceState({}, '', url);
-        location.reload(); // Recarrega a página
-    }
+    // if (isBack) {
+    //     // Atualiza o histórico do navegador
+    //     // window.history.replaceState({}, '', url);
+    //     location.reload(); // Recarrega a página
+    // }
 
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
-    // setTimeout(function() {
-    //     // Remover o efeito skeleton
-    //     const skeleton = document.getElementById('skeleton');
-    //     if (skeleton) {
-    //         skeleton.style.display = 'none'; // Oculta o skeleton
-    //     }
-    //     location.reload(); // Recarrega a página
-    // }, 4000); // 1000 ms = 1 segundo
+    setTimeout(function() {
+        // Remover o efeito skeleton
+        const skeleton = document.getElementById('skeleton');
+        if (skeleton) {
+            skeleton.style.display = 'none'; // Oculta o skeleton
+        }
+        location.reload(); // Recarrega a página
+    }, 4500); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
