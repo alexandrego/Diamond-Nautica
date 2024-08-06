@@ -75,37 +75,39 @@ function handleProductClick() {
 
         el.innerHTML = `
             <style>
-                .skeleton-product-home {
-                padding: 10px;
-                }
-                .skeleton-item-back {
-                    width: 30%;
-                    background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 20px; /* Altura do item do skeleton */
-                    border-radius: 4px; /* Bordas arredondadas */
-                    animation: pulse 1.5s infinite; /* Animação de pulsação */
-                }
-                .skeleton-item-img {
+                .skeleton-slide {
                     width: 100%;
-                    margin: 10px 0;
-                    background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 350px; /* Altura do item do skeleton */
-                    border-radius: 4px; /* Bordas arredondadas */
-                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
                 }
-                .skeleton-item-price {
-                    width: 30%;
-                    margin: 10px 0;
-                    background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 20px; /* Altura do item do skeleton */
-                    border-radius: 4px; /* Bordas arredondadas */
-                    animation: pulse 1.5s infinite; /* Animação de pulsação */
-                }
-                .skeleton-item-descricao {
+
+                .skeleton {
                     width: 100%;
-                    margin: 5px 0;
+                    display: flex;
+                    flex-direction: column;
+                    animation: slide-in 0.5s ease-out; /* Animação de entrada */
+                }
+
+                .skeleton-item-slide {
+                    width: 100%;
                     background-color: #e0e0e0; /* Cor do skeleton */
-                    height: 20px; /* Altura do item do skeleton */
+                    height: 120px; /* Altura do item do skeleton */
+                    border-radius: 4px; /* Bordas arredondadas */
+                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                }
+                .skeleton-product {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin: 8px 0;
+                }
+
+                .skeleton-item {
+                    width: 48%;
+                    background-color: #e0e0e0; /* Cor do skeleton */
+                    height: 200px; /* Altura do item do skeleton */
                     border-radius: 4px; /* Bordas arredondadas */
                     animation: pulse 1.5s infinite; /* Animação de pulsação */
                 }
