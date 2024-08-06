@@ -59,15 +59,20 @@ function handleProductClick() {
         </div>
     `;
 
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
-    setTimeout(function() {
+    // setTimeout(function() {
         // Remover o efeito skeleton
         // const skeleton = document.getElementById('skeleton');
         // if (skeleton) {
         //     skeleton.style.display = 'none'; // Oculta o skeleton
         // }
-        location.reload(); // Recarrega a página
-    }, 4500); // 1000 ms = 1 segundo
+        // location.reload(); // Recarrega a página
+    // }, 4500); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
@@ -89,8 +94,13 @@ function handleBackClick() {
         </div>
     `;
 
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
     setTimeout(function() {
-        history.back(); // Voltar à página anterior
+        window.history.back(); // Voltar à página anterior
     }, 1000); // 1000 ms = 1 segundo
 }
