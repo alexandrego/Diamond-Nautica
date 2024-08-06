@@ -67,29 +67,12 @@ function handleProductClick() {
     // Simular um atraso antes de voltar (ajuste o tempo conforme necessário)
     setTimeout(function() {
         // Remover o efeito skeleton
-        // const skeleton = document.getElementById('skeleton');
-        // if (skeleton) {
-        //     skeleton.style.display = 'none'; // Oculta o skeleton
-        // }
-        let el = document.getElementById('pagina-home');
-
-        el.innerHTML = `
-            <!-- Skeleton Loader -->
-            <div id="skeleton" class="skeleton" style="width:100%;display:flex;flex-direction:column;">
-
-                <div class="skeleton-item-slide" style="width:100%;background-color:#e0e0e0;height:120px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
-
-                <div class="skeleton-product" style="display:flex;flex-direction:row;
-                    flex-wrap:wrap;gap:10px;margin:8px 0;">
-                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
-                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
-                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
-                    <div class="skeleton-item" style="width:48%;background-color:#e0e0e0;height:200px;border-radius:4px;animation:pulse 1.5s infinite;"></div>
-                </div>
-            </div>
-        `;
-        location.reload(); // Recarrega a página
-    }, 4500); // 1000 ms = 1 segundo
+        const skeleton = document.getElementById('skeleton');
+        if (skeleton) {
+            skeleton.style.display = 'none'; // Oculta o skeleton
+        }
+        // location.reload(); // Recarrega a página
+    }, 2000); // 1000 ms = 1 segundo
 }
 
 // Voltando da página de produtos
