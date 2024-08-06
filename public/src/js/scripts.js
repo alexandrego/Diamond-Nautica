@@ -74,6 +74,42 @@ function handleProductClick() {
         let el = document.getElementById('pagina-home');
 
         el.innerHTML = `
+            <style>
+                .skeleton-product-home {
+                padding: 10px;
+                }
+                .skeleton-item-back {
+                    width: 30%;
+                    background-color: #e0e0e0; /* Cor do skeleton */
+                    height: 20px; /* Altura do item do skeleton */
+                    border-radius: 4px; /* Bordas arredondadas */
+                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                }
+                .skeleton-item-img {
+                    width: 100%;
+                    margin: 10px 0;
+                    background-color: #e0e0e0; /* Cor do skeleton */
+                    height: 350px; /* Altura do item do skeleton */
+                    border-radius: 4px; /* Bordas arredondadas */
+                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                }
+                .skeleton-item-price {
+                    width: 30%;
+                    margin: 10px 0;
+                    background-color: #e0e0e0; /* Cor do skeleton */
+                    height: 20px; /* Altura do item do skeleton */
+                    border-radius: 4px; /* Bordas arredondadas */
+                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                }
+                .skeleton-item-descricao {
+                    width: 100%;
+                    margin: 5px 0;
+                    background-color: #e0e0e0; /* Cor do skeleton */
+                    height: 20px; /* Altura do item do skeleton */
+                    border-radius: 4px; /* Bordas arredondadas */
+                    animation: pulse 1.5s infinite; /* Animação de pulsação */
+                }
+            </style>
             <!-- Skeleton Loader -->
             <div id="skeleton" class="skeleton">
 
