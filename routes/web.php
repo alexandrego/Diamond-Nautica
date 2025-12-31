@@ -20,4 +20,6 @@ Route::get('/home', [RoutesController::class, 'Home']);
 
 Route::get('/product/{id}', [RoutesController::class, 'Product'])->name('product.show');
 
+Route::get('/search', [RoutesController::class, 'Search']);
+
 Route::get('api-diamond', \App\Http\Controllers\ApiController::class);
