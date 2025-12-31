@@ -171,11 +171,5 @@ document.addEventListener('DOMContentLoaded', function() {
         loadSearchResults(query);
     }
 
-    // Make search input clickable to submit form
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('click', function() {
-            this.form.submit();
-        });
-    }
+
 });
