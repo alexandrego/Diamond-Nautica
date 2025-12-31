@@ -1,6 +1,7 @@
-@extends('layouts.header')
+@extends('layouts.main')
 
 @section('content')
+@include('layouts.header')
 <div class="search-page">
     <div class="search-header">
         <h1>Resultados da Busca</h1>
