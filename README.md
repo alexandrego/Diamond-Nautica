@@ -1,64 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Diamond Náutica - Aplicação Web
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre a Aplicação
 
-## About Laravel
+Diamond Náutica é uma aplicação web frontend desenvolvida em Laravel 8, projetada para exibir e interagir com produtos náuticos de um e-commerce. A aplicação consome uma API externa do WordPress/WooCommerce (hospedada em diamondnautica.com.br) para buscar e exibir informações de produtos, como listagens, detalhes individuais e categorias.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Funcionalidades Principais
+- **Página de Boas-Vindas**: Tela inicial com carousel de promoções.
+- **Listagem de Produtos**: Exibe produtos com paginação, imagens e preços.
+- **Detalhes do Produto**: Página individual para cada produto com informações completas.
+- **Endpoint API Interno**: Fornece dados de produtos em formato JSON via Facade ApiDiamond.
+- **Interface Responsiva**: Utiliza Bootstrap para design adaptável a dispositivos móveis e desktop.
+- **Carregamento Dinâmico**: Inclui efeitos de loading e retry para imagens.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Tecnologias Utilizadas
+- **Backend**: Laravel 8 (PHP 7.3+ ou 8.2+)
+- **Frontend**: Blade Templates, Bootstrap, JavaScript vanilla
+- **API Externa**: WordPress REST API (WooCommerce)
+- **Outros**: Guzzle HTTP para requisições, Sanctum para autenticação (não utilizado atualmente)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalação e Configuração
 
-## Learning Laravel
+### Pré-requisitos
+- PHP 7.3 ou superior
+- Composer
+- Node.js e NPM (para assets)
+- Servidor web (Apache/Nginx) ou usar `php artisan serve`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Passos de Instalação
+1. **Clone o repositório**:
+   ```bash
+   git clone <url-do-repositorio>
+   cd diamond-nautica
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Instale dependências PHP**:
+   ```bash
+   composer install
+   ```
 
-## Laravel Sponsors
+3. **Configure o ambiente**:
+   - Copie `.env.example` para `.env`
+   - Configure as variáveis de ambiente (banco de dados, etc.)
+   - Gere a chave da aplicação:
+     ```bash
+     php artisan key:generate
+     ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+4. **Instale dependências JavaScript**:
+   ```bash
+   npm install
+   npm run dev  # ou npm run prod para produção
+   ```
 
-### Premium Partners
+5. **Execute migrações (se aplicável)**:
+   ```bash
+   php artisan migrate
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+6. **Inicie o servidor**:
+   ```bash
+   php artisan serve
+   ```
+   A aplicação estará disponível em `http://localhost:8000`
 
-## Contributing
+## Estrutura do Projeto
+- `app/Http/Controllers/`: Controladores para rotas web e API
+- `resources/views/`: Templates Blade para frontend
+- `routes/web.php`: Definição de rotas
+- `app/Facades/ApiDiamond.php`: Facade para interagir com API externa
+- `app/Helpers/ApiDiamond.php`: Helper para configuração de HTTP client
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Melhorias Planejadas
+Consulte o arquivo [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) para um plano detalhado de melhorias futuras, incluindo performance, segurança, funcionalidades e infraestrutura.
 
-## Code of Conduct
+## Contribuição
+Para contribuir com melhorias:
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Licença
+Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Suporte
+Para dúvidas ou suporte, entre em contato com a equipe de desenvolvimento.
