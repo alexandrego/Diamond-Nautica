@@ -8,7 +8,7 @@
                     const logo = document.querySelector('.logo-header');
                     const link = document.createElement('a');
                     link.href = '/home';
-                    link.onclick = function() { showLoading(); };
+                    link.onclick = function() { loadPage('/home'); };
                     logo.parentNode.insertBefore(link, logo);
                     link.appendChild(logo);
                 }

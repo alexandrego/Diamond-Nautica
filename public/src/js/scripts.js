@@ -181,3 +181,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+// Function to load page content dynamically without full reload
+function loadPage(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.body.innerHTML = data;
+            history.pushState(null, '', url);
+            // Re-initialize any scripts if needed
+            const scripts = document.body.querySelectorAll('script');
+            scripts.forEach(script => {
+                if (script.src) {
+                    const newScript = document.createElement('script');
+                    newScript.src = script.src;
+                    document.body.appendChild(newScript);
+                } else {
+                    eval(script.textContent);
+                }
+            });
+        })
+        .catch(error => console.error('Error loading page:', error));
+}
