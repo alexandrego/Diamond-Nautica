@@ -1,28 +1,62 @@
-<div class="header">
-    <div>
-        <img src="/src/assets/img/logo.webp" class="logo-header" alt="Logo Diamond Náutica" />
-    </div>
-    <div class="input-group">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control text-form-search" placeholder="Pesquise aqui" aria-label="Username" aria-describedby="basic-addon1" />
-    </div>
-    <div>
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa-solid fa-bars btn-icons"></i></button>
-
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <p>Try scrolling the rest of the page to see this option in action.</p>
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <img src="/src/assets/img/logo.webp" class="logo-header" alt="Logo Diamond Náutica" />
+        </div>
+        <div class="header-center">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Pesquise produtos..." />
+                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
+        <div class="header-right">
+            <button class="icon-btn cart-btn" title="Carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </button>
+            <button class="icon-btn menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenu" aria-controls="mainMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </div>
-    <div>
-        <i class="fa-solid fa-cart-shopping btn-icons"></i>
-    </div>
+</header>
+
+<div class="login-bar">
+    <button class="login-btn">Entrar <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
 </div>
-<div class="isLogin">
-    <p class="btn-logar">Entrar <i class="fa-solid fa-arrow-right-to-bracket btn-icons-logar"></i></p>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="mainMenu" aria-labelledby="mainMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mainMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="menu-nav">
+            <a href="/" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-compass"></i>
+                <span>Categorias</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-heart"></i>
+                <span>Favoritos</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-user"></i>
+                <span>Minha Conta</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>Sobre Nós</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contato</span>
+            </a>
+        </nav>
+    </div>
 </div>
