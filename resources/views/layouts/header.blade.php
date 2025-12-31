@@ -3,6 +3,16 @@
         <div class="header-left">
             <img src="/src/assets/img/logo.webp" class="logo-header" alt="Logo Diamond Náutica" />
             <div class="search-container">
+            <script>
+                if (window.location.pathname !== '/home') {
+                    const logo = document.querySelector('.logo-header');
+                    const link = document.createElement('a');
+                    link.href = '/home';
+                    link.onclick = function() { showLoading(); };
+                    logo.parentNode.insertBefore(link, logo);
+                    link.appendChild(logo);
+                }
+            </script>
                 <form action="/search" method="GET" id="search-form">
                     <input type="text" name="q" class="search-input" placeholder="Pesquise produtos..." required />
                 </form>
