@@ -179,8 +179,61 @@ document.addEventListener('DOMContentLoaded', function() {
         loadSearchResults(query);
     }
 
+    // Real-time search suggestions
+    const searchInput = document.querySelector('.search-input');
+    const suggestionsDiv = document.getElementById('search-suggestions');
+    let debounceTimer;
 
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            const query = this.value.trim();
+            if (query.length > 1) {
+                debounceTimer = setTimeout(() => fetchSuggestions(query), 300);
+            } else {
+                suggestionsDiv.innerHTML = '';
+                suggestionsDiv.style.display = 'none';
+            }
+        });
+
+        // Hide suggestions on click outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+                suggestionsDiv.style.display = 'none';
+            }
+        });
+    }
 });
+
+// Function to fetch search suggestions
+function fetchSuggestions(query) {
+    fetch(`/api/search?q=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(products => {
+            const suggestionsDiv = document.getElementById('search-suggestions');
+            if (products && products.length > 0) {
+                suggestionsDiv.innerHTML = products.slice(0, 5).map(product => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${product.product_title}')">
+                        ${product.product_title}
+                    </div>
+                `).join('');
+                suggestionsDiv.style.display = 'block';
+            } else {
+                suggestionsDiv.innerHTML = '';
+                suggestionsDiv.style.display = 'none';
+            }
+        })
+        .catch(error => console.error('Error fetching suggestions:', error));
+}
+
+// Function to select a suggestion
+function selectSuggestion(title) {
+    const searchInput = document.querySelector('.search-input');
+    searchInput.value = title;
+    document.getElementById('search-suggestions').style.display = 'none';
+    // Submit the form or navigate to search page
+    document.getElementById('search-form').submit();
+}
 
 // Function to load page content dynamically without full reload
 function loadPage(url) {
