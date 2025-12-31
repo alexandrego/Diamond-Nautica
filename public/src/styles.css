@@ -219,7 +219,7 @@ body {
     }
 
     .logo-header {
-        width: 60px;
+        width: 75px;
         height: auto;
         filter: brightness(1.1);
         transition: transform 0.3s ease;
