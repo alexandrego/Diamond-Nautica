@@ -130,7 +130,7 @@ function loadSearchResults(query) {
     `;
 
     // Fetch search results
-    fetch(`https://diamondnautica.com.br/wp-json/diamondnautica/v2/search?q=${encodeURIComponent(query)}`)
+    fetch(`/api/search?q=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(products => {
             if (products && products.length > 0) {
