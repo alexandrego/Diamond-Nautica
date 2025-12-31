@@ -5,7 +5,6 @@
             <div class="search-container">
                 <form action="/search" method="GET" id="search-form">
                     <input type="text" name="q" class="search-input" placeholder="Pesquise produtos..." required />
-                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>
