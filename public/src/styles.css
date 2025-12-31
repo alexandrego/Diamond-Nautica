@@ -95,39 +95,103 @@ body {
             transform: translateY(0); /* Retorna à posição original */
         }
     }
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6);
+        }
+    }
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 0.8;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
 /* Fim Animações */
 
 /* Splash Screen */
     .splashScreen {
         width: 100%;
-        min-height: 90vh;
-        background: #120A8F;
-
-        /* border-top: 1px solid #000; */
+        min-height: 100vh;
+        background: linear-gradient(135deg, #120A8F 0%, #1a1a2e 50%, #16213e 100%);
+        position: relative;
+        overflow: hidden;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .imgSplashLogo {
-        width: 50%;
 
-        -webkit-animation: fadeInOutAnimation 2.5s ease;
-        animation: fadeInOutAnimation 2.5s ease;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
+    .splashScreen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    .imgSplashLogo {
+        width: 150px;
+        height: auto;
+        filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        z-index: 1;
+
+        animation: fadeInOutAnimation 2.5s ease, float 3s ease-in-out infinite;
+        -webkit-animation: fadeInOutAnimation 2.5s ease, float 3s ease-in-out infinite;
+        -webkit-animation-iteration-count: 1, infinite;
+        animation-iteration-count: 1, infinite;
 
     }
-    .welcomeSplash {
-        font-family: Inclusive Sans;
-        font-size: 22px;
-        color: #FFFFFF;
 
-        -webkit-animation: swing 4s ease;
-        animation: swing 4s ease;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
+    .welcomeSplash {
+        font-family: 'Inclusive Sans', sans-serif;
+        font-size: 24px;
+        color: #FFFFFF;
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        margin: 20px 0;
+        z-index: 1;
+
+        animation: swing 4s ease, glow 2s ease-in-out infinite alternate;
+        -webkit-animation: swing 4s ease, glow 2s ease-in-out infinite alternate;
+        -webkit-animation-iteration-count: 1, infinite;
+        animation-iteration-count: 1, infinite;
+    }
+
+    .progress-bar-container {
+        width: 250px;
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-top: 30px;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #00d4ff, #ffffff);
+        width: 0%;
+        border-radius: 3px;
+        transition: width 0.1s ease;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
     }
 /* Fim Splash Screen */
 
