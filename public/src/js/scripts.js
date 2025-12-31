@@ -135,12 +135,20 @@ function loadSearchResults(query) {
         .then(products => {
             if (products && products.length > 0) {
                 searchContainer.innerHTML = `
-                    <div class="search-results">
+                    <div class="produtosHome">
                         ${products.map(product => `
-                            <a href="/product/${product.product_id}" class="search-result-item">
-                                <img src="${product.product_img}" alt="${product.product_title}" class="search-result-img" onerror="this.src='/src/assets/img/logo.webp'">
-                                <h3 class="search-result-title">${product.product_title}</h3>
-                                <p class="search-result-price">R$ ${parseFloat(product.product_price).toFixed(2).replace('.', ',')}</p>
+                            <a href="/product/${product.product_id}" onclick="handleProductClick()">
+                                <div class="produtoUnico">
+                                    <div class="imgProduto">
+                                        <img src="${product.product_img}" onerror="this.src='/src/assets/img/logo.webp'">
+                                    </div>
+                                    <div class="tituloProduto">
+                                        ${product.product_title}
+                                    </div>
+                                    <div class="precoProduto">
+                                        R$ ${parseFloat(product.product_price).toFixed(2).replace('.', ',')}
+                                    </div>
+                                </div>
                             </a>
                         `).join('')}
                     </div>
