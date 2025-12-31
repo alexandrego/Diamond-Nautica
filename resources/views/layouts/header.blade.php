@@ -2,8 +2,6 @@
     <div class="header-container">
         <div class="header-left">
             <img src="/src/assets/img/logo.webp" class="logo-header" alt="Logo Diamond Náutica" />
-        </div>
-        <div class="header-center">
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Pesquise produtos..." />
                 <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
