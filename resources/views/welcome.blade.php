@@ -20,17 +20,19 @@
     }
     const splashscreen = setTimeout(bemVindo, 800);
 
-    // Animate progress bar
-    const progressBar = document.getElementById('progressBar');
-    let width = 0;
-    const interval = setInterval(function() {
-        if (width >= 100) {
-            clearInterval(interval);
-        } else {
-            width++;
-            progressBar.style.width = width + '%';
-        }
-    }, 40); // 4000ms / 100 = 40ms per percent
+    // Start progress bar after welcome message
+    setTimeout(function() {
+        const progressBar = document.getElementById('progressBar');
+        let width = 0;
+        const interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                progressBar.style.width = width + '%';
+            }
+        }, 32); // 3200ms / 100 = 32ms per percent
+    }, 800);
 
     const splash = setTimeout(function() {
         window.location.href = "/home";
