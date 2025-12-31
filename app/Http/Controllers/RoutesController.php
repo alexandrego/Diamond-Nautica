@@ -48,4 +48,12 @@ class RoutesController extends Controller
         // return view('products.index', compact('products'));
         return view('layouts/Products/product', compact('product'));
     }
+
+    //Página de busca
+    public function Search(Request $request)
+    {
+        $query = $request->get('q');
+
+        return view('search', compact('query'));
+    }
 }

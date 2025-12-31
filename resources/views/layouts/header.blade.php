@@ -3,8 +3,10 @@
         <div class="header-left">
             <img src="/src/assets/img/logo.webp" class="logo-header" alt="Logo Diamond Náutica" />
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Pesquise produtos..." />
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form action="/search" method="GET" id="search-form">
+                    <input type="text" name="q" class="search-input" placeholder="Pesquise produtos..." required />
+                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
             </div>
         </div>
         <div class="header-right">

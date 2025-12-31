@@ -111,3 +111,63 @@ function handleBackClick() {
         window.history.back(); // Voltar à página anterior
     }, 1000); // 1000 ms = 1 segundo
 }
+
+// Search functionality
+function loadSearchResults(query) {
+    const searchContainer = document.getElementById('search-results-container');
+
+    // Show skeleton loading
+    searchContainer.innerHTML = `
+        <div class="search-skeleton">
+            ${Array(8).fill().map(() => `
+                <div class="search-skeleton-item">
+                    <div class="search-skeleton-img"></div>
+                    <div class="search-skeleton-title"></div>
+                    <div class="search-skeleton-price"></div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    // Fetch search results
+    fetch(`https://diamondnautica.com.br/wp-json/diamondnautica/v2/search?q=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(products => {
+            if (products && products.length > 0) {
+                searchContainer.innerHTML = `
+                    <div class="search-results">
+                        ${products.map(product => `
+                            <a href="/product/${product.product_id}" class="search-result-item">
+                                <img src="${product.product_img}" alt="${product.product_title}" class="search-result-img" onerror="this.src='/src/assets/img/logo.webp'">
+                                <h3 class="search-result-title">${product.product_title}</h3>
+                                <p class="search-result-price">R$ ${parseFloat(product.product_price).toFixed(2).replace('.', ',')}</p>
+                            </a>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                searchContainer.innerHTML = `
+                    <div class="no-results">
+                        <p>Nenhum produto encontrado para "${query}"</p>
+                    </div>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar produtos:', error);
+            searchContainer.innerHTML = `
+                <div class="no-results">
+                    <p>Erro ao carregar resultados. Tente novamente.</p>
+                </div>
+            `;
+        });
+}
+
+// Initialize search on page load if on search page
+document.addEventListener('DOMContentLoaded', function() {
+    const searchQuery = document.getElementById('search-query');
+    if (searchQuery) {
+        const query = searchQuery.dataset.query;
+        loadSearchResults(query);
+    }
+});
