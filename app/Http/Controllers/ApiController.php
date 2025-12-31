@@ -13,6 +13,10 @@ class ApiController extends Controller {
 
     public function search(Request $request) {
         $query = $request->get('q');
-        return ApiDiamond::get('/products', ['search' => $query])->json();
+        $allProducts = ApiDiamond::get('/products')->json();
+        $filteredProducts = array_filter($allProducts, function($product) use ($query) {
+            return stripos($product['product_title'], $query) !== false;
+        });
+        return array_values($filteredProducts);
     }
 }
