@@ -1,1 +1,0 @@
-- [x] Fix search icon disappearing on input focus by adding background image to .search-input:focus rule
