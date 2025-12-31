@@ -37,7 +37,7 @@
         </div>
 
         <div class="product-price">
-            R$ {{ number_format($product['preco'], 2, ',', '.') }}
+            R$ {{ number_format((float)$product['preco'], 2, ',', '.') }}
         </div>
 
         <!-- Exibir a descrição do produto com HTML -->

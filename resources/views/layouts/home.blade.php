@@ -251,7 +251,7 @@
                                 {{ $product['product_title'] }}
                             </div>
                             <div class="precoProduto">
-                                R$ {{ number_format($product['product_price'], 2, ',', '.') }}
+                                R$ {{ number_format((float)$product['product_price'], 2, ',', '.') }}
                             </div>
                         </div>
                     </a>

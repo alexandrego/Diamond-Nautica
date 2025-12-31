@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to load page content dynamically without full reload
 function loadPage(url) {
+    showLoading();
     fetch(url)
         .then(response => response.text())
         .then(data => {
