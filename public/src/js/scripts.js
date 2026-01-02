@@ -113,62 +113,114 @@ function handleBackClick() {
 }
 
 // Search functionality
-function loadSearchResults(query) {
+let currentSearchPage = 1;
+let totalSearchPages = 1;
+let currentSearchQuery = '';
+
+function loadSearchResults(query, page = 1, append = false) {
     const searchContainer = document.getElementById('search-results-container');
 
-    // Show skeleton loading
-    searchContainer.innerHTML = `
-        <div class="search-skeleton">
-            ${Array(8).fill().map(() => `
-                <div class="search-skeleton-item">
-                    <div class="search-skeleton-img"></div>
-                    <div class="search-skeleton-title"></div>
-                    <div class="search-skeleton-price"></div>
-                </div>
-            `).join('')}
-        </div>
-    `;
+    currentSearchQuery = query;
+
+    if (!append) {
+        // Show skeleton loading
+        searchContainer.innerHTML = `
+            <div class="search-skeleton">
+                ${Array(8).fill().map(() => `
+                    <div class="search-skeleton-item">
+                        <div class="search-skeleton-img"></div>
+                        <div class="search-skeleton-title"></div>
+                        <div class="search-skeleton-price"></div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        currentSearchPage = 1;
+    } else {
+        // Show loading for more products
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (loadMoreBtn) loadMoreBtn.innerHTML = 'Carregando...';
+    }
 
     // Fetch search results
-    fetch(`/api/search?q=${encodeURIComponent(query)}`)
+    fetch(`/api-diamond?q=${encodeURIComponent(query)}&page=${page}&per_page=10`)
         .then(response => response.json())
-        .then(products => {
-            if (products && products.length > 0) {
-                searchContainer.innerHTML = `
-                    <div class="produtosHome">
-                        ${products.map(product => `
-                            <a href="/product/${product.product_id}" onclick="handleProductClick()">
-                                <div class="produtoUnico">
-                                    <div class="imgProduto">
-                                        <img src="${product.product_img}" onerror="this.src='/src/assets/img/logo.webp'">
-                                    </div>
-                                    <div class="tituloProduto">
-                                        ${product.product_title}
-                                    </div>
-                                    <div class="precoProduto">
-                                        R$ ${parseFloat(product.product_price).toFixed(2).replace('.', ',')}
-                                    </div>
-                                </div>
-                            </a>
-                        `).join('')}
-                    </div>
-                `;
-            } else {
+        .then(data => {
+            const products = data.products || [];
+            totalSearchPages = data.total_pages || 1;
+
+            if (!append && products.length === 0) {
                 searchContainer.innerHTML = `
                     <div class="no-results">
                         <p>Nenhum produto encontrado para "${query}"</p>
                     </div>
                 `;
+                return;
+            }
+
+            let html = '';
+            if (!append) {
+                html = '<div class="produtosHome" id="search-results-list">';
+            }
+
+            products.forEach(product => {
+                html += `
+                    <a href="/product/${product.product_id}" onclick="handleProductClick()">
+                        <div class="produtoUnico">
+                            <div class="imgProduto">
+                                <img src="${product.product_img}" onerror="this.src='/src/assets/img/logo.webp'">
+                            </div>
+                            <div class="tituloProduto">
+                                ${product.product_title}
+                            </div>
+                            <div class="precoProduto">
+                                R$ ${parseFloat(product.product_price).toFixed(2).replace('.', ',')}
+                            </div>
+                        </div>
+                    </a>
+                `;
+            });
+
+            if (!append) {
+                html += '</div>';
+                if (currentSearchPage < totalSearchPages) {
+                    html += '<button id="load-more-btn" class="btn-load-more" onclick="loadMoreSearchResults()">Carregar Mais</button>';
+                }
+                searchContainer.innerHTML = html;
+            } else {
+                // Append to existing results
+                const resultsList = document.getElementById('search-results-list');
+                if (resultsList) {
+                    resultsList.insertAdjacentHTML('beforeend', html);
+                }
+
+                // Update load more button
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                if (currentSearchPage < totalSearchPages) {
+                    if (loadMoreBtn) loadMoreBtn.innerHTML = 'Carregar Mais';
+                } else {
+                    if (loadMoreBtn) loadMoreBtn.remove();
+                }
             }
         })
         .catch(error => {
             console.error('Erro ao buscar produtos:', error);
-            searchContainer.innerHTML = `
-                <div class="no-results">
-                    <p>Erro ao carregar resultados. Tente novamente.</p>
-                </div>
-            `;
+            if (!append) {
+                searchContainer.innerHTML = `
+                    <div class="no-results">
+                        <p>Erro ao carregar resultados. Tente novamente.</p>
+                    </div>
+                `;
+            } else {
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                if (loadMoreBtn) loadMoreBtn.innerHTML = 'Carregar Mais';
+            }
         });
+}
+
+function loadMoreSearchResults() {
+    currentSearchPage++;
+    loadSearchResults(currentSearchQuery, currentSearchPage, true);
 }
 
 // Initialize search on page load if on search page
@@ -207,9 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to fetch search suggestions
 function fetchSuggestions(query) {
-    fetch(`/api/search?q=${encodeURIComponent(query)}`)
+    fetch(`/api-diamond?q=${encodeURIComponent(query)}&per_page=5`)
         .then(response => response.json())
-        .then(products => {
+        .then(data => {
+            const products = data.products || [];
             const suggestionsDiv = document.getElementById('search-suggestions');
             if (products && products.length > 0) {
                 suggestionsDiv.innerHTML = products.slice(0, 5).map(product => `

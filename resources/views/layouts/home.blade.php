@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@extends('layouts.header')
 
 @section('title', 'Diamond Náutica')
 
