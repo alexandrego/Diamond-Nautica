@@ -38,7 +38,9 @@
 
     </head>
     <body>
-        @include('layouts.header')
+        @if(request()->path() !== '/')
+            @include('layouts.header')
+        @endif
         @yield('content')
 
     <footer>
