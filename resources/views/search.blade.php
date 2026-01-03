@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@include('layouts.header')
 <div class="search-page">
     <div class="search-header">
         <div class="btn-voltar" onclick="window.location.href='/home'">
